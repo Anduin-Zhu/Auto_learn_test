@@ -36,42 +36,6 @@ cols = data_sheet.col_values(1)
 print(cols)
 print(data_sheet.cell_value(2,0))
 
-
-#定义一个列表来存放输入错误超过三次的人员
-user_heimingdan_list = []
-
-#主程序
-user_file = xlrd.open_workbook('user_file.xlsx')
-data_sheet = user_file.sheets()[0]
-list = []
-for i in range(data_sheet.nrows):
-    row_list = []
-    for j in range(data_sheet.ncols):
-        row_list.append(data_sheet.cell_value(i,j))
-    list.append(row_list)
-print(list)
-
-
-while True:
-    username_input = input("请输入您的用户名：")
-    passwd_input = input("请输入您的密码：")
-    for temp in list:
-        print(type(temp[1]))
-        if temp[0] == username_input:
-            if temp[1] == passwd_input:
-                print(type(temp[1]))
-                for i in user_heimingdan_list:
-                    if i != username_input:
-                        print("登录成功")
-                    else:
-                        print("您已输入错误超过三次，请联系管理员")
-                        continue
-            else:
-                print("密码输入错误")
-                continue
-        else:
-            print("用户名输入错误")
-            continue
 '''
 
 account_file = 'account.txt'
